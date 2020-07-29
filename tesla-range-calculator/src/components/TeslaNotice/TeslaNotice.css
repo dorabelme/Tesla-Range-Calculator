@@ -5,6 +5,11 @@
   line-height: 20px;
 }
 
+@media (max-width: 800px) {
+  .tesla-battery_notice {
+    text-align: center;
+  }
+}
 @media (max-width: 500px) {
   .tesla-battery_notice {
     margin-top: 120px;

@@ -30,6 +30,12 @@
 @media (max-width: 800px) {
   .tesla-battery {
     max-width: 800px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
   }
 
   .tesla-controls {

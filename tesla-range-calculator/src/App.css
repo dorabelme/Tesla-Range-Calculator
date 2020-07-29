@@ -5,6 +5,7 @@
 @media (max-width: 800px) {
   .wrapper {
     max-width: 800px;
+    overflow: hidden;
   }
 }
 
