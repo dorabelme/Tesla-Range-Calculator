@@ -1,7 +1,5 @@
 import React from 'react';
 import './TeslaStats.css';
-import TeslaBattery from '../../containers/TeslaBattery';
-
 
 function TeslaStats(props) {
     const listItems = props.carstats.map((stat) => (
