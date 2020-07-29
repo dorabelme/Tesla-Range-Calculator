@@ -74,3 +74,22 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 500px) {
+  .tesla-wheel--front {
+    left: 113px;
+    bottom: 115px;
+    height: 45px;
+    width: 45px;
+  }
+  .tesla-wheel--rear {
+    right: 217px;
+    bottom: 115px;
+    height: 45px;
+    width: 45px;
+  }
+
+  .tesla-car {
+    min-height: 260px;
+  }
+}

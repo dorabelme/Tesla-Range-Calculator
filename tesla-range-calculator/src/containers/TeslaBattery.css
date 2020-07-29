@@ -9,17 +9,51 @@
   font-size: 38px;
   text-align: center;
   letter-spacing: 3px;
+  margin-top: 50px;
 }
 
-.tesla-climate-container {
+/* .tesla-climate-container {
   float: left;
   width: 420px;
   padding: 0 40px;
   margin: 0 40px 0 0;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
-}
+} */
 .tesla-controls {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  .tesla-battery {
+    max-width: 800px;
+  }
+
+  .tesla-controls {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 500px) {
+  .tesla-battery {
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .tesla-controls {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 380px;
+  }
 }

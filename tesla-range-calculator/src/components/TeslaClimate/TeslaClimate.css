@@ -1,5 +1,5 @@
 .tesla-climate {
-  float: left;
+  width: 150px;
 }
 .tesla-climate__item {
   cursor: pointer;
@@ -58,4 +58,11 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+@media (max-width: 500px) {
+  .tesla-climate {
+    /* margin-top: 20px; */
+    width: 100px;
+  }
 }

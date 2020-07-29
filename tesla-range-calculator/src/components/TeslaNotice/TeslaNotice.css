@@ -4,3 +4,10 @@
   color: #666;
   line-height: 20px;
 }
+
+@media (max-width: 500px) {
+  .tesla-battery_notice {
+    margin-top: 120px;
+    text-align: center;
+  }
+}

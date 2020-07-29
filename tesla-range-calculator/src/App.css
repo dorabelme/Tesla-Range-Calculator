@@ -1,3 +1,16 @@
 .wrapper {
   margin: 100px 0 150px;
 }
+
+@media (max-width: 800px) {
+  .wrapper {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    width: 500px;
+    overflow: hidden;
+  }
+}
