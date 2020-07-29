@@ -4,6 +4,8 @@ import TeslaNotice from '../components/TeslaNotice/TeslaNotice';
 import TeslaCar from '../components/TeslaCar/TeslaCar';
 import TeslaStats from '../components/TeslaStats/TeslaStats';
 import TeslaCounter from '../components/TeslaCounter/TeslaCounter';
+import TeslaClimate from '../components/TeslaClimate/TeslaClimate';
+import TeslaWheels from '../components/TeslaWheels/TeslaWheels';
 import { getModelData } from '../services/BatteryService';
 
 class TeslaBattery extends React.Component {
@@ -15,6 +17,8 @@ class TeslaBattery extends React.Component {
         this.increment = this.increment.bind(this);
         this.decrement = this.decrement.bind(this);
         this.updateCounterState = this.updateCounterState.bind(this);
+        this.handleChangeClimate = this.handleChangeClimate.bind(this);
+        this.handleChangeWheels = this.handleChangeWheels.bind(this);
 
         this.state = {
             carstats: [],
@@ -30,8 +34,6 @@ class TeslaBattery extends React.Component {
     calculateStats = (models, value) => {
         const dataModels = getModelData();
         return models.map(model => {
-            // ES6 Object destructuring Syntax,
-            // takes out required values and create references to them
             const { speed, temperature, climate, wheels } = value;
             const miles = dataModels[model][wheels][climate ? 'on' : 'off'].speed[speed][temperature];
             return {
@@ -58,8 +60,9 @@ class TeslaBattery extends React.Component {
         // update config state with new value
         title === 'Speed' ? config['speed'] = newValue : config['temperature'] = newValue;
         // update our state
-        this.setState({ config });
+        this.setState({ config }, () => { this.statsUpdate() });
     }
+
     increment(e, title) {
         e.preventDefault();
         let currentValue, maxValue, step;
@@ -73,11 +76,13 @@ class TeslaBattery extends React.Component {
             maxValue = temperature.max;
             step = temperature.step;
         }
+
         if (currentValue < maxValue) {
             const newValue = currentValue + step;
             this.updateCounterState(title, newValue);
         }
     }
+
     decrement(e, title) {
         e.preventDefault();
         let currentValue, minValue, step;
@@ -91,15 +96,28 @@ class TeslaBattery extends React.Component {
             minValue = temperature.min;
             step = temperature.step;
         }
+
         if (currentValue > minValue) {
             const newValue = currentValue - step;
             this.updateCounterState(title, newValue);
         }
     }
 
+    // handle aircon & heating click event handler
+    handleChangeClimate() {
+        const config = { ...this.state.config };
+        config['climate'] = !this.state.config.climate;
+        this.setState({ config }, () => { this.statsUpdate() });
+    }
+
+    // handle Wheels click event handler
+    handleChangeWheels(size) {
+        const config = { ...this.state.config };
+        config['wheels'] = size;
+        this.setState({ config }, () => { this.statsUpdate() });
+    }
+
     render() {
-        // ES6 Object destructuring Syntax,
-        // takes out required values and create references to them
         const { config, carstats } = this.state;
         return (
             <form className="tesla-battery">
@@ -120,7 +138,16 @@ class TeslaBattery extends React.Component {
                             increment={this.increment}
                             decrement={this.decrement}
                         />
+                        <TeslaClimate
+                            value={this.state.config.climate}
+                            limit={this.state.config.temperature > 10}
+                            handleChangeClimate={this.handleChangeClimate}
+                        />
                     </div>
+                    <TeslaWheels
+                        value={this.state.config.wheels}
+                        handleChangeWheels={this.handleChangeWheels}
+                    />
                 </div>
                 <TeslaNotice />
             </form>
