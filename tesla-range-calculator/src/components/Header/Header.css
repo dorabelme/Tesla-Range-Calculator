@@ -10,6 +10,29 @@
   height: 13px;
 }
 
+.header-animation {
+  -webkit-animation: fade-in 2.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  -moz-animation: fade-in 2.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 2.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 800px) {
   .header {
     width: 800px;
