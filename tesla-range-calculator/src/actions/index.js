@@ -36,13 +36,13 @@ export const temperatureDown = (value) => {
     }
 }
 
-export default changeClimate = () => {
+export const changeClimate = () => {
     return {
         type: 'CHANGE_CLIMATE'
     }
 }
 
-export default changeWheel = (value) => {
+export const changeWheel = (value) => {
     return {
         type: 'CHANGE_WHEEL',
         value

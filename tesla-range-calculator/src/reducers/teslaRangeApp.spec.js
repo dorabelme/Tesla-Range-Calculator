@@ -121,17 +121,11 @@ const temperatureDownState = {
 
 describe('test reducer', () => {
     it('should handle initial stat', () => {
-        expect(
-            appReducer(undefined, {})
-        ).toEqual(initialState)
+        expect(appReducer(undefined, {})).toEqual(initialState)
     })
 
     it('should handle CHANGE_CLIMATE', () => {
-        expect(
-            appReducer(initialState, {
-                type: 'CHANGE_CLIMATE'
-            })
-        ).toEqual(climateChangeState)
+        expect(appReducer(initialState, { type: 'CHANGE_CLIMATE' })).toEqual(climateChangeState)
     })
 
     it('should handle SPEED_UP', () => {
@@ -157,11 +151,7 @@ describe('test reducer', () => {
 
     it('should handle CHANGE_WHEEL', () => {
         expect(
-            appReducer(speedDownState, {
-                type: 'CHANGE_WHEEL',
-                value: 21
-            })
-        ).toEqual(wheelChangeState)
+            appReducer(speedDownState, { type: 'CHANGE_WHEEL', value: 21 })).toEqual(wheelChangeState)
     })
 
     it('should handle TEMPERATURE_UP', () => {

@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import TeslaCarContainer from './containers/TeslaCarContainer';
+import TeslaStatsContainer from './containers/TeslaStatsContainer';
+import TeslaSpeedCounterContainer from './containers/TeslaSpeedCounterContainer';
+import TeslaTempCounterContainer from './containers/TeslaTempCounterContainer';
+import TeslaClimateContainer from './containers/TeslaClimateContainer';
+import TeslaWheelsContainer from './containers/TeslaWheelsContainer';
 import './App.css';
 import Header from './components/Header/Header';
+import TeslaNotice from './components/TeslaNotice/TeslaNotice';
 import TeslaBattery from './containers/TeslaBattery';
+import appReducer from './reducers/teslaRangeApp';
+
+const store = createStore(appReducer);
 
 const counterDefaultVal = {
   speed: {
@@ -23,10 +35,12 @@ const counterDefaultVal = {
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <TeslaBattery counterDefaultVal={counterDefaultVal} />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Header />
+          <TeslaBattery counterDefaultVal={counterDefaultVal} />
+        </div>
+      </Provider>
     );
   }
 }
