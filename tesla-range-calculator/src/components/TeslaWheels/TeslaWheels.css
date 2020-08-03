@@ -8,6 +8,8 @@
 }
 .tesla-wheels__container {
   margin: 10px 0 0;
+  display: flex;
+  flex-direction: row;
 }
 .tesla-wheels__item {
   cursor: pointer;

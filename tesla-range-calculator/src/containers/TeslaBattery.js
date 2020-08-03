@@ -131,25 +131,23 @@ class TeslaBattery extends React.Component {
                         increment={this.increment}
                         decrement={this.decrement}
                     />
-                    {/* <div className="tesla-climate-container cf"> */}
-                    <TeslaCounter
-                        currentValue={this.state.config.temperature}
-                        initValues={this.props.counterDefaultVal.temperature}
-                        increment={this.increment}
-                        decrement={this.decrement}
-                    />
-                    <TeslaClimate
-                        value={this.state.config.climate}
-                        limit={this.state.config.temperature > 10}
-                        handleChangeClimate={this.handleChangeClimate}
-                    />
-                    {/* </div> */}
-                    {/* <div className='tesla-climate-container'> */}
+                    <div className="tesla-climate-container cf">
+                        <TeslaCounter
+                            currentValue={this.state.config.temperature}
+                            initValues={this.props.counterDefaultVal.temperature}
+                            increment={this.increment}
+                            decrement={this.decrement}
+                        />
+                        <TeslaClimate
+                            value={this.state.config.climate}
+                            limit={this.state.config.temperature > 10}
+                            handleChangeClimate={this.handleChangeClimate}
+                        />
+                    </div>
                     <TeslaWheels
                         value={this.state.config.wheels}
                         handleChangeWheels={this.handleChangeWheels}
                     />
-                    {/* </div> */}
                 </div>
                 <TeslaNotice />
             </form>

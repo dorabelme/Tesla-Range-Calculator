@@ -82,6 +82,12 @@
   background-image: url(../../assets/counter/down.svg);
 }
 
+@media (max-width: 800px) {
+  .tesla-counter__title {
+    min-width: 180px;
+  }
+}
+
 @media (max-width: 500px) {
   .tesla-counter {
     margin-bottom: 20px;
