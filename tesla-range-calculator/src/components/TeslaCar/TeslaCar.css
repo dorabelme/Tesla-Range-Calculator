@@ -47,6 +47,18 @@
   background-position: 0 0;
   background-size: cover;
 }
+
+.tesla-wheel--animation--19 {
+  -webkit-animation: bounce-in-top 2s both;
+  -moz-animation: bounce-in-top 2s both;
+  animation: bounce-in-top 2s both;
+}
+.tesla-wheel--animation--21 {
+  -webkit-animation: bounce-in-bottom 2s both;
+  -moz-animation: bounce-in-bottom 2s both;
+  animation: bounce-in-bottom 2s both;
+}
+
 .tesla-wheel--front {
   left: 53px;
 }
