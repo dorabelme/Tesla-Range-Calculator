@@ -7,38 +7,35 @@ import TeslaSpeedCounterContainer from './containers/TeslaSpeedCounterContainer'
 import TeslaTempCounterContainer from './containers/TeslaTempCounterContainer';
 import TeslaClimateContainer from './containers/TeslaClimateContainer';
 import TeslaWheelsContainer from './containers/TeslaWheelsContainer';
-import './App.css';
-import Header from './components/Header/Header';
 import TeslaNotice from './components/TeslaNotice/TeslaNotice';
-import TeslaBattery from './containers/TeslaBattery';
+import Header from './components/Header/Header';
+import './App.css';
 import appReducer from './reducers/teslaRangeApp';
 
-const store = createStore(appReducer);
-
-const counterDefaultVal = {
-  speed: {
-    title: "Speed",
-    unit: "mph",
-    step: 5,
-    min: 45,
-    max: 70
-  },
-  temperature: {
-    title: "Outside Temperature",
-    unit: "°",
-    step: 10,
-    min: -10,
-    max: 40
-  }
-};
+const store = createStore(appReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="App">
+        <div>
           <Header />
-          <TeslaBattery counterDefaultVal={counterDefaultVal} />
+          <div className="wrapper">
+            <form className="tesla-battery">
+              <h1>Range Per Charge</h1>
+              <TeslaCarContainer />
+              <TeslaStatsContainer />
+              <div className="tesla-controls cf">
+                <TeslaSpeedCounterContainer />
+                <TeslaTempCounterContainer />
+                <div className="tesla-climate-container cf">
+                  <TeslaClimateContainer />
+                </div>
+                <TeslaWheelsContainer />
+              </div>
+              <TeslaNotice />
+            </form>
+          </div>
         </div>
       </Provider>
     );
@@ -46,3 +43,4 @@ class App extends Component {
 }
 
 export default App;
+

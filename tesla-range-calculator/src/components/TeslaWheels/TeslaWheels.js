@@ -21,9 +21,9 @@ const LabelLists = (props) => {
     )
     );
     return (
-        <div>
+        <>
             {LabelItems}
-        </div>
+        </>
     );
 }
 const TeslaWheels = (props) => (
