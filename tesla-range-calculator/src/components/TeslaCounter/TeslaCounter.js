@@ -11,7 +11,7 @@ class TeslaCounter extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { currentValue, initValues } = nextProps;
+        // const { currentValue, initValues } = nextProps;
         if (this.props.currentValue !== nextProps.currentValue) {
             const direction = this.props.currentValue < nextProps.currentValue ? 'increase' : 'decrese';
             this.setState({
