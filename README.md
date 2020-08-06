@@ -1,6 +1,6 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ed184cb6-6bde-41e2-a42d-a4cdaa5a546b/deploy-status)](https://app.netlify.com/sites/dorabelme/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7e97f077-b8ab-4ab2-8530-c7321a63075d/deploy-status)](https://app.netlify.com/sites/tesla-range-calc/deploys)
 
-# [Tesla Range Calculator](https://https://tesla-range-calc.netlify.app/)
+# [Tesla Range Calculator](https://tesla-range-calc.netlify.app/)
 
 Tesla's Battery Range Calculator built using React.JS and Redux.
 
